@@ -1,0 +1,827 @@
+<!-- User Story #1: I can see a title with id="title" in H1 sized text.
+
+User Story #2: I can see a short explanation with id="description" in P sized text.
+
+User Story #3: I can see a form with id="survey-form".
+
+User Story #4: Inside the form element, I am required to enter my name in a field with id="name".
+
+User Story #5: Inside the form element, I am required to enter an email in a field with id="email".
+
+User Story #6: If I enter an email that is not formatted correctly, I will see an HTML5 validation error.
+
+User Story #7: Inside the form, I can enter a number in a field with id="number".
+
+User Story #8: If I enter non-numbers in the number input, I will see an HTML5 validation error.
+
+User Story #9: If I enter numbers outside the range of the number input, which are defined by the min and max attributes, I will see an HTML5 validation error.
+
+User Story #10: For the name, email, and number input fields inside the form I can see corresponding labels that describe the purpose of each field with the following ids: id="name-label", id="email-label", and id="number-label".
+
+User Story #11: For the name, email, and number input fields, I can see placeholder text that gives me a description or instructions for each field.
+
+User Story #12: Inside the form element, I can select an option from a dropdown that has a corresponding id="dropdown".
+
+User Story #13: Inside the form element, I can select a field from one or more groups of radio buttons. Each group should be grouped using the name attribute.
+
+User Story #14: Inside the form element, I can select several fields from a series of checkboxes, each of which must have a value attribute.
+
+User Story #15: Inside the form element, I am presented with a textarea at the end for additional comments.
+
+User Story #16: Inside the form element, I am presented with a button with id="submit" to submit all my inputs. -->
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+    
+   <link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+    
+    <style>
+        
+.fling-minislide {width:100%; height:0px; padding-bottom: 55%; overflow:hidden; position:relative; }
+.fling-minislide img{ position:absolute; animation:fling-minislide 125s infinite; opacity:0; width: 100%; height: auto;}
+
+@keyframes fling-minislide {25%{opacity:1;} 40%{opacity:0;}}
+      
+
+.fling-minislide img:nth-child(5){animation-delay:0s;}
+
+
+
+
+.fling-minislide img:nth-child(4){animation-delay:25s;}
+.fling-minislide img:nth-child(3){animation-delay:50s;}
+
+.fling-minislide img:nth-child(2){animation-delay:75s;}
+.fling-minislide img:nth-child(1){animation-delay:100s;}
+        
+
+        body{
+ 
+
+         background-image:linear-gradient(
+      rgba(0, 226, 255, 0.45), 
+      rgba(216, 255, 0, 0.39)
+    ),  url("https://images.unsplash.com/photo-1560605046-63c8d7526d9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1575&q=80");
+            
+ background-attachment:fixed;
+background-repeat:no-repeat;
+background-size:cover;
+background-position:center;
+        /* overflow-x: hidden; /* Hide horizontal scrollbar */     
+  }
+        .logo img{
+  max-width: 39%;
+        height: auto;  
+        border-radius: 25px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width:auto;
+        vertical-align: bottom;
+            margin-top: 15%;
+            margin-bottom: 15%;
+        
+        box-shadow: 10px 10px 20px rgba(0,0,0,0.19), 10px 6px 6px rgba(0,0,0,0.23);
+               
+}
+        
+        #title{
+            
+            font-family: 'Berkshire Swash', cursive;
+            font-size: 40px;
+ color:white;
+
+            color: rgba(1, 23, 0, 0.99);
+            padding-top: 10%;
+            text-align: center;
+             background:  linear-gradient(, #031d03, #031703, #0f270f, transparent, transparent
+    ), url("https://images.unsplash.com/photo-1560605046-63c8d7526d9e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1575&q=80");
+            word-spacing: 5px;
+        }
+
+        
+        #description{
+            
+      font-family: 'Patua One', cursive;
+        text-align: justify;
+        font-size: 28px;
+color: rgba(1, 23, 0, 0.99);
+
+        max-width: 100%;
+        height: auto;  
+        border-radius: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width:auto;
+        vertical-align: bottom;
+        padding-left: 20%;
+        padding-right: 20%;
+        padding-bottom: 5%;
+        padding-top: 5%; 
+            word-spacing: 2px;
+        }
+        
+        h3{text-align: center;
+     color: rgba(1, 23, 0, 0.99);
+
+        word-spacing: 7px;}
+        
+        h2 {color:white;
+  word-spacing: 8px;
+}
+        
+             form{
+                 
+   opacity: auto;
+   margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+   margin-bottom: 100px;
+   padding: 15px;
+    height: auto;
+   box-shadow: 1px 5px 10px solid rgba(0, 226, 255, 0.29);
+   background-color: rgba(95, 99, 100, 0.29);
+   filter: alpha(opacity=50); 
+    border-radius: 50px;
+        
+}
+        
+        
+        .instructions {opacity: auto;
+   margin: 100px;
+   padding: 20px;
+    height: auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+   box-shadow: 1px 5px 10px solid rgba(0, 226, 255, 0.29);
+   background-color: rgba(95, 99, 100, 0.29);
+   filter: alpha(opacity=50); 
+    border-radius: 25px;
+color: rgba(1, 23, 0, 0.99);
+
+            font-family: 'Patua One', cursive;
+            text-align: justify-all;
+            font-size: 20px;
+            word-spacing: 8px;
+           
+        
+}
+        
+        /* Style inputs, select elements and textareas */
+input[type=text], select, textarea{
+  width: 100%;
+  padding: 15px;
+   
+  border: 2px solid rgba(5, 77, 3, 0.99);
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+    font-family: 'Patua One', cursive;
+    font-size: 15px;
+    word-spacing: 5px;
+}
+ 
+        /* Style email */
+        
+input[type=email] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(5, 77, 3, 0.99);
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+    font-family: 'Patua One', cursive;
+    word-spacing: 5px;
+}
+        
+    /* Style number*/
+input[type=number] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(5, 77, 3, 0.99);
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+    font-family: 'Patua One', cursive;
+    word-spacing: 5px;
+
+}
+
+/* Style the label to display next to the inputs */
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+
+
+ 
+/* Style the survey-form */
+#survey-form {
+  
+  border-radius: 50px;
+ height: auto;
+   padding-left: 25%;
+    padding-right: 25%;
+    font-family: 'Patua One', cursive;
+   color: rgba(1, 23, 0, 0.99);
+
+    font-size: 16px;
+    word-spacing: 5px;
+        }
+/* Floating column for labels: 25% width */
+.col-25 {
+  float: left;
+  width: 25%;
+
+    height: 15px;
+    padding-bottom: 5%;
+  
+}
+
+/* Floating column for inputs: 75% width */
+.col-75 {
+  float: left;
+  width: 70%;
+
+    height: 10%;
+    padding-bottom: 5%;
+    
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+ 
+}
+
+        .otherfield{padding-bottom: 35px;}
+        
+        
+.btn-group button {
+  background-color: #4CAF50; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+    
+    margin-bottom: 20px;
+  
+  cursor: pointer; /* Pointer/hand icon */
+  width: 100%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: 1px solid green; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .instructions, .col-25, .col-75, input[type=submit] {
+ 
+    margin-top: 0;
+        width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+       background-attachment:fixed;
+background-repeat:no-repeat;
+background-size:cover;
+background-position:center;
+  }
+}
+ @media screen and (max-width: 600px) {
+  .instructions, .col-25, .col-75, input[type=reset] {
+    
+    margin-top: 0;
+        width: auto ;
+  max-width: 100% ;
+  height: auto ;
+       background-attachment:fixed;
+background-repeat:no-repeat;
+background-size:cover;
+background-position:center;
+  }
+     
+     background-attachment:fixed;
+}   
+        
+        footer {text-align: center;
+           color: rgba(4, 56, 2, 0.99);
+
+        padding-bottom: 120px;}
+        
+    
+    </style>
+
+  <title>Brief Census Survey Form - Goa</title>
+ 
+</head>
+
+
+    
+   <body>   
+  <main>
+
+    <header>
+        <div class="logo">
+        <img src="https://i.pinimg.com/originals/77/22/af/7722af354dddd4e92a31ac65e1fd7878.jpg" alt="Logo" width= auto height=auto
+style="width:auto;height:auto;"> <br>
+      </div>
+        
+         
+
+<div class="fling-minislide">
+
+
+
+
+    <img src="https://EzekielCarvalho.github.io/images_surveygoa/housefifteen.JPG
+" alt="Slide 5" />
+
+
+  <img src="https://EzekielCarvalho.github.io/images_surveygoa/housefour.JPG" alt="Slide 4" />    
+<img src="https://EzekielCarvalho.github.io/images_surveygoa/housethree.JPG
+" alt="Slide 3" />
+
+  <img src="https://EzekielCarvalho.github.io/images_surveygoa/housetwo.JPG" alt="Slide 2" />
+
+  <img src="https://EzekielCarvalho.github.io/images_surveygoa/houseone.JPG" alt="Slide 1" />
+</div>
+        
+        
+      <h1 id="title">
+        
+        Brief Census Survey - State of Goa
+        
+        </h1> <br>
+   
+        <p id="description"> As a result of regular changes in the quantity of the population of the state of Goa, it is incumbent upon our NGO to undertake a brief survey of the people periodically, in conjunction with the Government of Goa. The information gathered in this survey would be held in the highest confidence, and protected by law.<br>
+        <br>
+        You are required to enter all the details accurately to the best of your knowledge. Thank you for your cooperation. You are required to complete this process <u>only once.</u>
+        <br>    <br>
+        The form may be filled by the head or on behalf of the head of the family.
+            
+        
+        </p> 
+      
+      
+      </header>
+      
+ <div class="instructions">
+      
+     <u> <h2 style="text-align: center"> 
+     Instructions for filling the  form:
+     </h2> </u>
+      
+     <ul><li>Ensure that the information entered is accurate.</li> <br> <hr>
+         
+    <li>The Aadhar and PAN number identifications are to be those of the head of the family only.</li> <br> <hr>
+    
+    <li> The "Name" has to include the name, age and gender of the head of the family.</li> <br> <hr>
+         
+    <li>The "Other Names" includes all family members names, ages and genders.</li> <br> <hr>
+         
+     <li>Include the ages and genders of the respective persons after entering all their names in the same space provided, separated by a comma for each person. The genders are to be entered either as "M" for "Male" or "F" for "Female" <br>
+     <strong>Example:</strong> John Smith 15 M, Jenny Smith 13 F, etc.</li><br> <hr>
+         
+     <li>In the "Place of birth (country)" section, first enter the country of birth of the head of the family first, followed by the countries of birth in the order of family members entered in the "Other Names" category.</li><br> <hr>
+         
+     <li> In the State and Taluka category, follow the same order as the previous category. You will have to separate the taluka with a hyphen "-", but fill the Taluka category only if the member is from Goa. Follow the below example for assistance: <br>
+     <strong>Example:</strong> Goa-Salcete, Maharashtra, Goa-Bicholim, Karnataka etc.</li><br> <hr>
+         
+     <li>In the marital status category, you are required to state the marital status with an initial of either "M" for "Married" or "U" for "Unmarried" for all the members of the family, starting with the head of the family, followed by the same order of family members entered in the "Other Names" category. Separate each member with a comma. Follow the example below for reference: <br>
+     <strong>Example:</strong> M, M, U, U, U</li> <br> <hr>
+    
+     <li>In the disability status category, you are required to state the disability status with an initial of either "D" for "Disabled" or "N" for "Not Disabled" for all the members of the family, starting with the head of the family, followed by the same order of family members entered in the "Other Names" category. Separate each member with a comma. Follow the example below for reference: <br>
+     <strong>Example:</strong> N, N, N, N, D</li> <br> <hr>
+     
+     <li>In the literacy status category, you are required to state the literacy status with an initial of either "L" for "Literate" or "I" for "Illiterate" for all the members of the family, starting with the head of the family, followed by the same order of family members entered in the "Other Names" category. Separate each member with a comma. Follow the example below for reference: <br>
+         <strong>Example:</strong> L, L, L, I, I</li><br> <hr>
+     
+     <li>It is not mandatory to enter your election card details</li><br> <hr>
+     
+     <li>"Other known languages" refers to languages known by the head of the family besides the mother tongue.</li> <br> <hr>
+     
+    <li>"Highest education level" and "Profession" have to be entered of all the members of the family with a separation of each member with a comma.</li> <br> <hr>
+         
+    <li>"Religion" refers to the religion of the head of the family.</li><br> <hr>
+         
+    <li>"Contact details" have to be of the head of the family.</li>
+     </ul> <hr>
+      
+      </div> 
+      
+
+    
+       <div id="survey-form">
+  <form action="action_page.php">
+       <h3 style="font-family: 'Patua One', cursive;">Identification Details:</h3>
+      
+            <div class="row">
+      <div class="col-25">
+        <label for="aadhar">Aadhar number:</label>
+      </div>
+      <div class="col-75">
+  <input type="text" id="aadhar" name="aadhar" maxlength="14" onkeyup="addHyphen(this)" placeholder="Please enter your Aadhar number" required> 
+</div>
+    </div>
+      
+<div class="row">
+      <div class="col-25">
+        <label for="PAN">PAN number:</label>
+      </div>
+      <div class="col-75">
+  <input type="text" id="PAN" name="PAN" placeholder="Please enter your PAN number" required>
+</div>
+    </div>
+      
+      <div class="row">
+      <div class="col-25">
+        <label for="EC">Election Card number:</label>
+      </div>
+      <div class="col-75">
+  <input type="text" id="EC" name="EC" placeholder="Please enter your EC number"> 
+</div>
+    </div>
+      
+           </form> 
+           
+      <form action="action_page.php">
+          <h3>Personal & Familial Details:</h3>
+    <div class="row">
+      <div class="col-25">
+         
+        <label for="name">Name:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="name" placeholder="Name Age Gender (head)" required>
+      </div>
+    </div>
+      
+    <div class="row">
+      <div class="col-25">
+        <label for="age">Other Names:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="age" name="age" placeholder="Name Age Gender, Name ..." required>
+      </div>
+    </div>
+      
+
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Place of birth (country):</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="gender" name="gender" placeholder="Country" required>
+      </div>
+    </div>
+      
+
+    <div class="row">
+      <div class="col-25">
+        <label for="StateTaluka">State & Taluka:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="gender" name="gender" placeholder="State & Taluka" required>
+      </div>
+    </div>
+           
+
+      
+      <div class="row">
+      <div class="col-25">
+        <label for="mother tongue">Mother Tongue</label>
+      </div>
+      <div class="col-75">
+      
+    <select name = "Mother tongue">
+		<option value="English" selected>English</option>
+		<option value="Hindi">Hindi</option>
+		<option value="Portuguese">Portuguese</option>
+        <option value="Konkani" selected>Konkani</option>
+		<option value="Marathi">Marathi</option>
+		<option value="Other state language">Other respective state language</option>
+	</select>
+     </div>
+      </div>
+      
+            <div class="row">
+      <div class="col-25">
+        <label for="otherlanguages">Other known languages:</label>
+      </div>
+      <div class="col-75">
+      
+        <input type="text" id="otherlanguages" name="otherlanguages" placeholder="Other languages" required>
+      </div>
+    </div>
+          
+    <div class="row">
+      <div class="col-25">
+        <label for="maritalstatus">Marital status:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="maritalstatus" name="maritalstatus" placeholder="Marital Status" required>
+      </div>
+    </div>
+          
+    <div class="row">
+      <div class="col-25">
+        <label for="disabilitystatus">Disability status:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="disabilitystatus" name="disabilitystatus" placeholder="Disability Status" required>
+      </div>
+    </div>
+          
+                      <div class="row">
+      <div class="col-25">
+        <label for="religion">Religion</label>
+      </div>
+      <div class="col-75">
+        <select id="religion" name="religion">
+          <option value="Christian">Christian</option>
+          <option value="hindu">Hindu</option>
+          <option value="Muslim">Muslim</option>
+            <option value="Sikh">Sikh</option>
+          <option value="Jain">Jain</option>
+            <option value="atheist">Atheist</option>
+          <option value="Agnostic">Agnostic</option>
+            <option value="Non-religious">Non-religious</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    </div>
+          
+           </form> 
+            <form action="action_page.php">
+        <h3>Educational & professional with familial details:</h3>
+        <div class="row">
+      <div class="col-25">
+        <label for="literacystatus">Literacy status:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="literacystatus" name="literacystatus" placeholder="Literacy Status" required>
+      </div>
+    </div>
+      
+              <div class="row">
+      <div class="col-25">
+        <label for="Highest education level">Highest education level:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="Highest education level" name="Highest education level" placeholder="Highest education level" required>
+      </div>
+    </div>
+      
+                    <div class="row">
+      <div class="col-25">
+        <label for="Occupation">Profession:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="Occupation" name="Occupation" placeholder="Occupation" required>
+      </div>
+    </div>
+                
+         <div class="row">
+      <div class="col-25">
+        <label for="income"></label>
+      </div>
+      <div class="col-75">
+     <p style="text-align: center">Please select your <u>yearly</u> family income category of the main breadwinner:</p>
+  <input type="radio" id="age1" name="income" value="100000-150000">
+  <label for="Income1">&lt ₹ 100,000 - ₹ 150,000</label><br>
+  <input type="radio" id="Income2" name="income" value="150000-250000">
+  <label for="Income2">₹ 150,000 - ₹ 250,000</label><br>  
+  <input type="radio" id="Income3" name="income" value="250000-400000">
+  <label for="Income3">₹ 250,000 - ₹ 400,000</label><br> 
+  <input type="radio" id="Income3" name="income" value="400000-450000">
+  <label for="Income4">₹ 400,000 - ₹ 450,000</label><br> 
+  <input type="radio" id="Income4" name="income" value="450000-600000">
+  <label for="Income3">₹ 450,000 - ₹ 600,000 &gt</label><br>
+          
+        </div>
+          </div>
+     
+           </form>
+                
+<form action="action_page.php">
+       <h3>Assets:</h3>
+                
+        <div class="row">
+      <div class="col-25">
+        <label for="lodging">Current lodging:</label>
+      </div>
+      <div class="col-75">
+        <select id="Type of lodging" name="Type of lodging">
+          <option value="Flat">Flat</option>
+          <option value="House">House</option>
+          <option value="Bungalow">Bungalow</option>
+            <option value="Row villa">Row villa</option>
+          <option value="Hotel">Hotel</option>
+            <option value="Guest House">Guest House</option>
+          <option value="Shack">Shack</option>
+            <option value="Other">Other</option>
+      
+        </select>
+      </div>
+    </div>
+    
+            <div class="row">
+      <div class="col-25">
+        <label for="assets"></label>
+      </div>
+      <div class="col-75">
+     <p style="text-align: justify-all">Do you own any accommodation:</p>
+
+          
+  <input type="checkbox" id="asset1" name="asset1" value="Yes">
+  <label for="asset1"> Yes</label>
+  <input type="checkbox" id="asset2" name="asset2" value="No">
+  <label for="assete2"> No</label>
+          
+                </div>
+          </div>
+          
+    <div class="row">
+      <div class="col-25">
+        <label for="assets"></label>
+      </div>
+      <div class="col-75">
+     <p style="text-align: justify-all">Do you give any accommodation on lease:</p>
+       <input type="checkbox" id="asset1" name="asset1" value="Yes">
+  <label for="asset1"> Yes</label>
+  <input type="checkbox" id="asset2" name="asset2" value="No">
+  <label for="assete2"> No</label>
+    
+                </div>
+          </div>
+   
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Electronic devices</label>
+      </div>
+      <div class="col-75">
+        <textarea id="Major electronic devices" name="Major electronic devices" placeholder="State all the major electronic devices that you own. Examples: Cell phone, washing machine, computer, TV etc." style="height:150px" required></textarea>
+      </div>
+    </div>
+        
+
+          
+    
+   
+    <div class="row">
+      <div class="col-25">
+        <label for="vehicle"></label>
+      </div>
+      <div class="col-75">
+     <p style="text-align: center">Please select the type of vehicle your family owns &sol; rents:</p>
+
+          
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"> Motorbike</label><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="vehicle2"> Car</label><br>
+      <input type="checkbox" id="vehicle4" name="vehicle4" value="Auto-rickshaw">
+  <label for="vehicle3"> Auto-rickshaw </label><br>
+  <input type="checkbox" id="vehicle5" name="vehicle3" value="Truck">
+  <label for="vehicle3"> Truck </label><br>
+ <input type="checkbox" id="vehicle6" name="vehicle4" value="Other">
+  <label for="vehicle4"> Other (Please specify)</label><br>
+    
+     
+    <div class="otherfield">
+      <label for="otherfield"></label>
+  <input type="text" id="otherfield" name="otherfield" placeholder="Please type here">
+    
+</div>
+    
+    
+
+</div>
+          </div>    
+    
+           </form>
+  
+<form action="action_page.php">
+       <h3>Contact Details:</h3>
+          
+    <div class="row">
+      <div class="col-25">
+        <label for="phonenumber">Phone Number</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="numberrange" min="1000" max="100000000000000" pattern="[3-9]|[1-3][0-9]|4[0-2]" placeholder="Please enter your phone number here" required>
+      </div>
+    </div>
+      
+       
+      
+        <div class="row">
+      <div class="col-25">
+        <label for="email">Email address</label>
+      </div>
+      <div class="col-75">
+        <input type="email" id="email" name="email" 
+        title="The domain portion of the email address is invalid (the portion after the @)." pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"       
+        placeholder="Please enter your valid email address here if any">
+      </div>
+    </div> 
+          
+              <div class="row">
+      <div class="col-25">
+        <label for="whatsappnumber">Whatsapp Number</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="numberrange" min="1000" max="100000000000000" pattern="[3-9]|[1-3][0-9]|4[0-2]" placeholder="Please enter your phone number here">
+      </div>
+    </div>
+          
+        <div class="row">
+      <div class="col-25">
+        <label for="landlinenumber">Landline Number</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="numberrange" min="1000" max="100000000000000" pattern="[3-9]|[1-3][0-9]|4[0-2]" placeholder="Please enter your phone number here">
+      </div>
+    </div>
+      
+    </form>
+    
+    <form action="action_page.php">
+       <h3>Feedback:</h3>
+        <div class="otherfield">
+      <label for="otherfield"> Please state any comments on how we can further improve our survey for the next census. Thank you.</label>
+  <input type="text" id="otherfield" name="otherfield" placeholder="Please enter all your comments here " style="height:100px" required >
+    
+</div>
+ 
+      
+<div class="btn-group">
+  <button type="submit" value="Submit" id="submit"><strong>SUBMIT</strong></button>
+  
+  <button type="reset" value="Reset" id="reset"><strong>RESET</strong></button>
+
+<hr style="color: darkgreen">
+<hl>
+    
+<p> Please visit  <a href = "http://www.xyz.gov.co.in">
+        the survey site
+      </a> for further information related to this census. <br><br>
+    
+    You can also contact our NGO staff on this number: 555-897-236</p> </hl>
+</div>
+      
+
+          
+          <script>
+	function addHyphen (element) {
+    	let ele = document.getElementById(element.id);
+        ele = ele.value.split('-').join('');    // Remove dash (-) if mistakenly entered.
+
+        let finalVal = ele.match(/.{1,4}/g).join('-');
+        document.getElementById(element.id).value = finalVal;
+    }
+</script>
+        
+        
+          
+ </form>
+    
+    <div>
+
+    <footer>
+        
+
+    
+
+     Copyright &copy 2020 King Real Estate. <br> All Rights Reserved. <br> <br>
+        
+        This site works best on Google Chrome computer based browsers.
+      
+      </footer>
+           
+         </div> 
+          
+    
+    </main>  
+        
+      </body> 
+          
+</html>
